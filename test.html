@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu hỏi trắc nghiệm cho người yêu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #fff0f5;
+        }
+        .quiz-container {
+            max-width: 90%;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ff66b2;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+        @media (max-width: 480px) {
+            .quiz-container {
+                width: 100%;
+                padding: 15px;
+            }
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Em yêu anh nhiều như thế nào? 💖</h2>
+        <form id="quiz-form">
+            <input type="radio" name="answer" value="a"> Nhiều lắm luôn! 😍<br>
+            <input type="radio" name="answer" value="b"> Hơi hơi thôi! 🙈<br>
+            <input type="radio" name="answer" value="c"> Không yêu! 😜<br>
+        </form>
+        <button onclick="checkAnswer()">Xem kết quả</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function checkAnswer() {
+            var options = document.getElementsByName('answer');
+            var resultText = document.getElementById('result');
+            
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].checked) {
+                    if (options[i].value === 'a') {
+                        resultText.innerHTML = 'Anh cũng yêu em rất nhiều! 💕';
+                    } else if (options[i].value === 'b') {
+                        resultText.innerHTML = 'Anh sẽ cố gắng làm em yêu anh nhiều hơn! 🥰';
+                    } else {
+                        resultText.innerHTML = 'Không được chọn câu này nha! 😡';
+                    }
+                    return;
+                }
+            }
+            resultText.innerHTML = 'Hãy chọn một câu trả lời nhé! 😊';
+        }
+    </script>
+</body>
+</html>
